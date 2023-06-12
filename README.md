@@ -1,12 +1,12 @@
 # cub3D
 
 <p align="center">
-    <img src="https://img.shields.io/github/languages/count/fleizean/cub3D?style=for-the-badge"/>
+    <img src="https://img.shields.io/github/languages/count/ayaman/cub3D?style=for-the-badge"/>
     <img src="https://img.shields.io/github/last-commit/fleizean/cub3D?style=for-the-badge"/>
     <img src="https://img.shields.io/github/forks/fleizean/cub3D?style=for-the-badge"/>
     <img src="https://img.shields.io/github/followers/fleizean?style=for-the-badge"/>
     <img src="https://img.shields.io/github/watchers/fleizean/cub3D?style=for-the-badge"/>
-    <img src="https://img.shields.io/badge/Partner-fyurtsev-red?style=for-the-badge&logo=appveyor"/>
+    <img src="https://img.shields.io/badge/Partner-oozdiyar-red?style=for-the-badge&logo=appveyor"/>
 </p>
 
 <p align="center">
