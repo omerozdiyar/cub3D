@@ -31,6 +31,10 @@ void	init_default(t_game *game)
 	game->list = create_list();
 }
 
+/*
+	
+*/
+
 void	init_game(t_game *game)
 {
 	int		i;
@@ -58,6 +62,12 @@ void	init_game(t_game *game)
 			system_err("Malloc Error");
 	}
 }
+
+/*
+	Bu fonksiyon bizim iki boyutlu mapimize yer ayırma işlemi yapar.
+	İlk başta haritanın yüksekliğine iki boutlu yer ayırdıktan sonra 
+	her birim için bir de haritanın enine yer açar.
+*/
 
 void	init_map(t_game *game)
 {

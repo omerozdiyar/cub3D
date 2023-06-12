@@ -12,6 +12,13 @@
 
 #include "../includes/cub3d.h"
 
+/*
+	Bu fonksiyon t_maplist struct'ına yer açma işlemi yapar.
+	Eğer malloc yer açmaz ise "Malloc Error" hatası döndürüp,
+	program sonlanır. Hata döndürülmez ise yer açılan yere null
+	ataması yapılıp return edilir.
+*/
+
 t_maplist	*create_list(void)
 {
 	t_maplist	*list;

@@ -18,6 +18,10 @@ void	exit_err(char *err_msg)
 	exit(EXIT_FAILURE);
 }
 
+/*
+	Gönderilen sistem hata mesajını çıktı yapıp programı sonlandırır.
+*/
+
 void	system_err(char *err_msg)
 {
 	perror(err_msg);

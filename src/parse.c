@@ -12,6 +12,13 @@
 
 #include "../includes/cub3d.h"
 
+/*
+	Bu fonksiyon bizim girilen map adı argümanının
+	kontrol edildiği fonksiyondur. Eğer girilen argümanda
+	bir sıkıntı var ise error yazdırma fonksiyonlarına 
+	gönderme işlemi yapılır.
+*/
+
 void	check_arg(int argc, char **argv)
 {
 	int		i;
@@ -64,6 +71,12 @@ void	parse_cub(int fd, t_game *game)
 	if (game->dir_flag != 4 || game->color_flag != 2 || game->pos_flag != 1)
 		exit_err(".cub: Too Few gamermation\n");
 }
+
+/*
+	Bu fonksiyonda ilk başta argüman kontrolü yapıldıktan sonra
+	girilen harita dosyasını açıp, açılıp açılmadığını kontrol 
+	ediyoruz. Eğer açıldıysa... 
+*/
 
 void	parse(int argc, char **argv, t_game *game)
 {
