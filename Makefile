@@ -87,6 +87,6 @@ re:			fclean all
 			@echo Cleaned and rebuilt
 
 welcome:
-			@echo "$(RED)$ fyurtsev and eyagiz $(RESET)"
+			@echo "$(RED)$ fyurtsev and ayaman $(RESET)"
 
 .PHONY:		all clean fclean re bonus norm
