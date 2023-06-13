@@ -37,6 +37,14 @@ void	load_texture(t_game *game, int dir, char *path)
 	load_image(game, game->texture[dir], path);
 }
 
+/*
+	Bu fonksiyon harita dosyanın son 4 harfini kontrol eder
+	(example-> map.pub). Bunu da dosya adının ilk harfinden
+	ilerleyip son dört karaktere gelip burada bi karşılaştırma
+	işlemi yapıyor. Eğer bir sıkıntı var ise error mesajı yazırıp
+	programdan çıkılıyor.
+*/
+
 int	check_extension(char *filename, char *extension)
 {
 	if (!filename)
@@ -45,6 +53,16 @@ int	check_extension(char *filename, char *extension)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
+
+/*
+	Bu fonksiyonda ise get_textures'den aldığımız değişkenlerin
+	kontolünü yapıyoruz. Eğer girilen argüman sayısı 2'ye eşit değil
+	ise ve ikinci argüman ".xpm" ile bitmiyorsa split değişkenini freeleyip
+	hata çıktısı döndürür. Lakin istenilen şekilde argüman girildiyse dosya 
+	açılıp dosyadan dokuyu okuyup game->texture değişkenine doldurur.
+	daha sonra dir_flag(kaç tane doku tutulduğunu belirten değişken)
+	değişkenini arttırır.
+*/
 
 int	get_texture(char *line, t_game *game, int dir)
 {
@@ -67,6 +85,13 @@ int	get_texture(char *line, t_game *game, int dir)
 	game->dir_flag++;
 	return (RETURN_SUCCESS);
 }
+
+/*
+	Bu fonksiyon mapte kuzey güney doğu batı kontorlü yapar.
+	eğer bunlardan bir tanesi eksikse map hata verir. Çünkü biz mapte
+	duvarları tek bir renk yapmıyoruz. Haritamız da iki boyutlu olduğu için 
+	kamera açımızın baktığı yere göre duvara renk vermemiz gerekiyor.
+*/
 
 int	get_textures(char *line, t_game *game)
 {
