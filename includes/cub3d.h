@@ -174,7 +174,6 @@ void		add_node(t_maplist *list, t_node *node);
 **	parse.c
 */
 void		parse(int argc, char **argv, t_game *game);
-void		load_texture(t_game *game, int dir, char *path);
 /*
 **	parse_map.c
 */

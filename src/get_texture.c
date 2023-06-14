@@ -13,9 +13,12 @@
 #include "../includes/cub3d.h"
 
 /*
-	Bu fonksiyon bizim imageleri textures arreyinin içine doldurduğumuz yerdir. İlk başta y ekseninde başlayıp
-	x eksenini doldurup sonra y değişkenini 1 arttırıp x eksenini tekrardan doldurup imageleri 
-	textures arreyinin içine doldurduğumuz yerdir.
+	Bu fonksiyon ilk başta 'mlx_xpm_file_to_image' fonksiyonu ile imagemizin yüksekliğini ve genişliğini bulur.
+	Daha sonra 'mlx_get_data_addr' fonksiyonunu kullanarak dokunun renk verilerini alır ve img.data değişkenine atar. 
+	Bu fonksiyon, aynı zamanda dokunun bit derinliğini img.bpp değişkenine atar.
+	iki tane döngü kullanarak dokunun renk verilerini texture dizisine kopyalar. 
+	Bu döngüler, dokunun her pikselini gezerek texture dizisinin uygun elemanına renk değerini atar. 
+	Renk değerleri 256 tabanına göre dönüştürülmüştür.
 */
 
 void	load_image(t_game *game, int *texture, char *path)
@@ -36,13 +39,6 @@ void	load_image(t_game *game, int *texture, char *path)
 			texture[img.img_width * y + x] = img.data[img.img_width * y + x];
 	}
 	mlx_destroy_image(game->mlx, img.img);
-}
-
-//iç içe fonksiyona gerek yok bu alanı düzenle !
-
-void	load_texture(t_game *game, int dir, char *path)
-{
-	load_image(game, game->texture[dir], path);
 }
 
 /*
@@ -88,7 +84,7 @@ int	get_texture(char *line, t_game *game, int dir)
 	fd = open(split[1], O_RDONLY);
 	if (fd < 0)
 		return (RETURN_FAILURE);
-	load_texture(game, dir, split[1]);
+	load_image(game, game->texture[dir], split[1]);
 	free_double_char(split);
 	game->dir_flag++;
 	return (RETURN_SUCCESS);
