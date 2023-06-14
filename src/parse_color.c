@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_color.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaman <ayaman@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ayaman <ayaman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:14:55 by ayaman            #+#    #+#             */
-/*   Updated: 2023/02/02 13:32:39 by ayaman           ###   ########.fr       */
+/*   Updated: 2023/06/14 18:10:46 by ayaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ int	parse_color(char *str, int *rgb, int *count)
 	return (RETURN_SUCCESS);
 }
 
+/*
+	BU fonksiyon bizim renk değerlerimizin 3 adet değerden oluşup
+	oluşmadığını kontrol eder. 2 tane virgül kontrolü yapmamızı sağlar.
+*/
+
 int	get_comma(char *line)
 {
 	int		i;
@@ -68,6 +73,11 @@ int	get_comma(char *line)
 	return (comma);
 }
 
+/*
+	mlx kütüphanesi rgb rengi tek bir integer değerde almak istediği için biz 
+	bu fonksiyounda 3 tane değeri tek bir değere dönüştürme işlemi yapıyoruz.
+*/
+
 void	floor_ceiling(t_game *game, int *rgb, int flag)
 {
 	if (flag == FLOOR)
@@ -75,6 +85,12 @@ void	floor_ceiling(t_game *game, int *rgb, int flag)
 	else
 		game->ceiling = ((rgb[0] * 256 * 256) + (rgb[1] * 256 + rgb[2]));
 }
+
+/*
+	Bu fonksiyonda ilk başta virgğl kontolüyle renklerin kaç tane parametreden 
+	oluştuğunu kontrol ediyoruz. daha sonra da split fonksiyonu ile değerleri alıp
+	
+*/
 
 void	get_background_color(char *line, t_game *game, int flag)
 {

@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   get_texture.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaman <ayaman@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ayaman <ayaman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:32:49 by ayaman            #+#    #+#             */
-/*   Updated: 2023/01/23 18:43:50 by ayaman           ###   ########.fr       */
+/*   Updated: 2023/06/14 17:16:04 by ayaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+/*
+	Bu fonksiyon bizim imageleri textures arreyinin içine doldurduğumuz yerdir. İlk başta y ekseninde başlayıp
+	x eksenini doldurup sonra y değişkenini 1 arttırıp x eksenini tekrardan doldurup imageleri 
+	textures arreyinin içine doldurduğumuz yerdir.
+*/
 
 void	load_image(t_game *game, int *texture, char *path)
 {
@@ -31,6 +37,8 @@ void	load_image(t_game *game, int *texture, char *path)
 	}
 	mlx_destroy_image(game->mlx, img.img);
 }
+
+//iç içe fonksiyona gerek yok bu alanı düzenle !
 
 void	load_texture(t_game *game, int dir, char *path)
 {
@@ -95,6 +103,7 @@ int	get_texture(char *line, t_game *game, int dir)
 
 int	get_textures(char *line, t_game *game)
 {
+
 	if (!ft_strncmp(line, "NO ", 3))
 	{
 		if (get_texture(line, game, NO))
