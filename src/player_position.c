@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_position.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaman <ayaman@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ayaman <ayaman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:14:08 by ayaman            #+#    #+#             */
-/*   Updated: 2023/01/23 17:15:18 by ayaman           ###   ########.fr       */
+/*   Updated: 2023/06/15 17:49:19 by ayaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ void	init_ray(t_game *game, int i, int j)
 	game->ray.planex = 0;
 	game->ray.planey = 0;
 }
+
+/*
+	burayı rafet veya başka birine sor.
+*/
 
 void	player_position(t_game *game, int i, int j)
 {

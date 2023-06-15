@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   get_map_info.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaman <ayaman@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ayaman <ayaman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:35:34 by ayaman            #+#    #+#             */
-/*   Updated: 2023/01/23 18:08:02 by ayaman           ###   ########.fr       */
+/*   Updated: 2023/06/15 17:22:47 by ayaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+/* 
+	haritanın her bir satırı birbirinden farklı uzunluklarda olabileceği için maksimum genişliğe göre kısa olanlara boşluk atıyoruz. 
+*/
 void	b_space(t_game *game, t_node *node, int i)
 {
 	int		j;
@@ -24,6 +27,11 @@ void	b_space(t_game *game, t_node *node, int i)
 	}
 	game->map[i][game->map_width] = '\0';
 }
+
+/*
+	Bu fonksiyonda sadece b_space fonksiyonunu oluşturup bir sonraki node ye geçip bir önceki nodu
+	freeleme işlemi yapıyor.
+*/
 
 void	dup_map(t_game *game)
 {
@@ -48,6 +56,16 @@ void	dup_map(t_game *game)
 	game->map[i] = NULL;
 	free(game->list);
 }
+
+/*
+	!!!!BU FONKSİYONA SADECE AMA SADECE ALFABETİK KARAKTERLER İÇİN GİRER!!!!
+	
+	1. IF : bizim karaktetimizin haritamızın içinde olup olmadığını kontorl ediyor eğer karakterimiz
+	haritanın dışında ise invalid map hatası alırız.
+	DİĞER İF SORGULARI İSE KARAKTERİN ÇEVRESİNDE 1 VE 0 DAN BAŞKA KARAKTER VAR MI ONU KONTROL EDER EĞER BİR HATA
+	VARSA HATA DÖNDÜRÜR.
+	
+*/
 
 int	check_position(t_game *game, int i, int j)
 {
@@ -82,6 +100,10 @@ int	check_blank(t_game *game, int i, int j)
 	return (RETURN_SUCCESS);
 }
 
+/*
+	
+*/
+
 void	get_map_game(t_game *game)
 {
 	int		i;
@@ -95,6 +117,7 @@ void	get_map_game(t_game *game)
 		{
 			if (ft_isalpha(game->map[i][j]))
 			{
+				
 				if (check_position(game, i, j))
 					exit_err("Invalid map\n");
 				player_position(game, i, j);
