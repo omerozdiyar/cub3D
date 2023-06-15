@@ -12,6 +12,10 @@
 
 #include "../includes/cub3d.h"
 
+/*
+	split ile aldığımız argümanların sayısını bulduğumuz fonksiyondur.
+*/
+
 int	ft_splitlen(char **str)
 {
 	int		i;

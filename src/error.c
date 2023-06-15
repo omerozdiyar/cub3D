@@ -28,6 +28,10 @@ void	system_err(char *err_msg)
 	exit(EXIT_FAILURE);
 }
 
+/*
+	Bu fonksiyonda freeleme işleminden sonra hata çıktısı ekrana yazdırılıp program sonlandırılır.
+*/
+
 void	free_exit_err(char **str, char *err_msg)
 {
 	int		i;

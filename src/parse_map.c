@@ -55,6 +55,10 @@ int	check_map(t_game *game, char *line, int size)
 	return (RETURN_SUCCESS);
 }
 
+/*
+	Bu fonksiyon haritayı kontrol  ettiğimiz yerin başlangıcıdır.
+*/
+
 void	parse_map(char *line, t_game *game)
 {
 	int		size;

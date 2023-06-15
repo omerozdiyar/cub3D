@@ -12,6 +12,10 @@
 
 #include "../includes/cub3d.h"
 
+/*
+	Bu fonksiyon alınan değerin numerik olup olmadığını kontrol eder.
+*/
+
 int	is_valid_string(char *str)
 {
 	int		i;
@@ -25,6 +29,14 @@ int	is_valid_string(char *str)
 	}
 	return (EXIT_SUCCESS);
 }
+
+/*
+	Bu fonksiyonda ise virgüle göre split işlemi yaptıktan sonra
+	tam sayı değerlerine ulaşıyoruz. Daha sonra da girilen renk değerlerini
+	sayıya dönüştürdükten sonra hem kaç adet sayı girildiğini hem de girilen
+	sayıların doğru aralıklarda olup olmadığını kontrol ediyoruz. bir sıkıntı
+	yok ise başarı bir şekilde fonksiyondan çıkış yapılır.
+*/
 
 int	parse_color(char *str, int *rgb, int *count)
 {
@@ -54,7 +66,8 @@ int	parse_color(char *str, int *rgb, int *count)
 
 /*
 	BU fonksiyon bizim renk değerlerimizin 3 adet değerden oluşup
-	oluşmadığını kontrol eder. 2 tane virgül kontrolü yapmamızı sağlar.
+	oluşmadığını kontrol eden fonksiyonlardan biridir. 
+	Kaç tane virgül karakteri olduğunu return eder.
 */
 
 int	get_comma(char *line)
@@ -75,7 +88,8 @@ int	get_comma(char *line)
 
 /*
 	mlx kütüphanesi rgb rengi tek bir integer değerde almak istediği için biz 
-	bu fonksiyounda 3 tane değeri tek bir değere dönüştürme işlemi yapıyoruz.
+	bu fonksiyounda 3 tane girilen renk değerini tek bir değere dönüştürme 
+	işlemi yapıyoruz.
 */
 
 void	floor_ceiling(t_game *game, int *rgb, int flag)
@@ -87,9 +101,9 @@ void	floor_ceiling(t_game *game, int *rgb, int flag)
 }
 
 /*
-	Bu fonksiyonda ilk başta virgğl kontolüyle renklerin kaç tane parametreden 
-	oluştuğunu kontrol ediyoruz. daha sonra da split fonksiyonu ile değerleri alıp
-	
+	Bu fonksiyon taban ve tavan için girilen rgb renk değerlerinin kaç adet
+	olduğunu bulup, bunlarda bir sıkıntı yok ise girilen renk değerlerini 
+	dosyadan okuyup belleğe kayıt etmek için kullandığımız bir fonksiyondur.
 */
 
 void	get_background_color(char *line, t_game *game, int flag)
